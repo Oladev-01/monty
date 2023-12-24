@@ -46,14 +46,14 @@ int main(int ac, char **av)
 /**
  * check_digit - this function checks if the argument
  *  parsed to the opcode is a valid integer
- * @c: this is the character to check for
+ * @token: this is the string to check for
  * @line_number: this is the line number
  * @pts: the file pointer
  * Return: void
  */
-void check_digit(int c, FILE *pts, unsigned int line_number)
+void check_digit(char *token, FILE *pts, unsigned int line_number)
 {
-	if (isdigit(c) == 0)
+	if (!isdigit(token[0]) && (token[0] != '-' || !isdigit(token[1])))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		fclose(pts);
@@ -71,12 +71,11 @@ void check_digit(int c, FILE *pts, unsigned int line_number)
  */
 void check_digit_1(char *token, FILE *pts, unsigned int line_number)
 {
-	int c, j = 0;
+	int j = 0;
 
 	while (token[j])
 	{
-		c = token[j];
-		check_digit(c, pts, line_number);
+		check_digit(token + j, pts, line_number);
 		j++;
 	}
 }

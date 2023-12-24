@@ -40,7 +40,7 @@ typedef struct instruction_s
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void free_list(stack_t **stack);
-void check_digit(int c, FILE *pts, unsigned int line_number);
+void check_digit(char *token, FILE *pts, unsigned int line_number);
 void check_digit_1(char *token, FILE *pts, unsigned int line_number);
 void chk_op(stack_t **head, char *opcodes, unsigned int line_number, FILE *pts);
 #endif
