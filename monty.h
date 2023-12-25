@@ -43,4 +43,5 @@ void free_list(stack_t **stack);
 void check_digit(char *token, FILE *pts, unsigned int line_number);
 void check_digit_1(char *token, FILE *pts, unsigned int line_number);
 void chk_op(stack_t **head, char *opcodes, unsigned int line_number, FILE *pts);
+void pint(stack_t **stack, unsigned int line_number);
 #endif

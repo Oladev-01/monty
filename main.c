@@ -94,6 +94,7 @@ void chk_op(stack_t **head, char *opcodes, unsigned int line_number, FILE *pts)
 	instruction_t ptr[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 		};
 
