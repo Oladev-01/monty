@@ -24,7 +24,7 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div - this function divides the second element-
+ * div_stack - this function divides the second element-
  * of the stack by the first element
  * @stack: the pointer to the pointer to the head node
  * @line_number: line number
@@ -32,7 +32,6 @@ void sub(stack_t **stack, unsigned int line_number)
  */
 void div_stack(stack_t **stack, unsigned int line_number)
 {
-
 	stack_t *ptr = *stack, *hold;
 	int div;
 
@@ -49,5 +48,29 @@ void div_stack(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	hold->n = hold->n / div;
+	pop(stack, line_number);
+}
+
+/**
+ * mul_ty - this function multiplies the first by the second-
+ * element of the stack
+ * @stack: the pointer to the pointer to the head node
+ * @line_number: line number
+ * Return: void
+ */
+void mul_ty(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr = *stack, *hold;
+	int mul = 1;
+
+	if (!stack || !ptr || !ptr->next)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	hold = ptr->next;
+	mul *= ptr->n;
+	mul *= hold->n;
+	hold->n = mul;
 	pop(stack, line_number);
 }
