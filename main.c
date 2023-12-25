@@ -30,7 +30,7 @@ int main(int ac, char **av)
 		token = strtok(line, " \n");
 		opcodes = token;
 		token = strtok(NULL, " \n");
-		if (token)
+		if (token && strcmp(opcodes, "push") == 0)
 		{
 			check_digit_1(token, pts, line_number);
 			num = atoi(token);
