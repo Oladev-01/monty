@@ -34,7 +34,7 @@ void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr;
 
-	if (!stack)
+	if (!stack || !(*stack))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
@@ -45,7 +45,6 @@ void pall(stack_t **stack, unsigned int line_number)
 		printf("%d\n", ptr->n);
 		ptr = ptr->next;
 	}
-	free_list(stack);
 }
 
 /**

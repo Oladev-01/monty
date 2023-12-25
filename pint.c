@@ -7,11 +7,13 @@
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
+	stack_t *ptr;
+
 	if (!stack || !(*stack))
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", (*stack)->n);
-	free_list(stack);
+	ptr = *stack;
+	printf("%d\n", ptr->n);
 }

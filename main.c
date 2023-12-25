@@ -39,6 +39,7 @@ int main(int ac, char **av)
 			chk_op(&head, opcodes, line_number, pts);
 		line_number++;
 	}
+	free_list(&head);
 	fclose(pts);
 	return (0);
 }
@@ -53,15 +54,11 @@ int main(int ac, char **av)
  */
 void check_digit(char *token, FILE *pts, unsigned int line_number)
 {
-	if (strcmp(token, "push") == 0)
+	if (!token || (!isdigit(token[0]) && (token[0] != '-' || !isdigit(token[1]))))
 	{
-		token = strtok(NULL, " \n");
-		if (!token || (!isdigit(token[0]) && (token[0] != '-' || !isdigit(token[1]))))
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			fclose(pts);
-			exit(EXIT_FAILURE);
-		}
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fclose(pts);
+		exit(EXIT_FAILURE);
 	}
 }
 
