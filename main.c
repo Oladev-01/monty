@@ -97,6 +97,7 @@ void chk_op(stack_t **head, char *opcodes, unsigned int line_number, FILE *pts)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
+		{"div", div_stack},
 		{NULL, NULL}
 		};
 
