@@ -1,5 +1,4 @@
 #include "monty.h"
-int num;
 /**
  * main - this is the entry function
  * @ac: this is the arg count
@@ -30,11 +29,8 @@ int main(int ac, char **av)
 		token = strtok(line, " \n");
 		opcodes = token;
 		token = strtok(NULL, " \n");
-		if (token && strcmp(opcodes, "push") == 0)
-		{
-			check_digit_1(token, pts, line_number);
-			num = atoi(token);
-		}
+		if (opcodes && strcmp(opcodes, "push") == 0)
+			confirm_op_arg(token, pts, line_number);
 		if (opcodes)
 			chk_op(&head, opcodes, line_number, pts);
 		line_number++;
