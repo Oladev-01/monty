@@ -54,4 +54,5 @@ void div_stack(stack_t **stack, unsigned int line_number);
 void mul_ty(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
 #endif
