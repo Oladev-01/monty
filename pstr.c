@@ -14,7 +14,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 	if (!ptr)
 	{
 		printf("\n");
-		exit(0);
+		return;
 	}
 	while (ptr)
 	{
