@@ -99,6 +99,7 @@ void chk_op(stack_t **head, char *opcodes, unsigned int line_number, FILE *pts)
 		{"sub", sub},
 		{"div", div_stack},
 		{"mul", mul_ty},
+		{"mod", mod},
 		{NULL, NULL}
 		};
 
