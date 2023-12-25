@@ -53,11 +53,15 @@ int main(int ac, char **av)
  */
 void check_digit(char *token, FILE *pts, unsigned int line_number)
 {
-	if (!isdigit(token[0]) && (token[0] != '-' || !isdigit(token[1])))
+	if (strcmp(token, "push") == 0)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		fclose(pts);
-		exit(EXIT_FAILURE);
+		token = strtok(NULL, " \n");
+		if (!token || (!isdigit(token[0]) && (token[0] != '-' || !isdigit(token[1]))))
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			fclose(pts);
+			exit(EXIT_FAILURE);
+		}
 	}
 }
 
@@ -104,7 +108,7 @@ void chk_op(stack_t **head, char *opcodes, unsigned int line_number, FILE *pts)
 		if (check == 0)
 		{
 			ptr[i].f(head, line_number);
-			break;
+			return;
 		}
 	}
 	if (check != 0)
