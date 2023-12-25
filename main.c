@@ -95,6 +95,7 @@ void chk_op(stack_t **head, char *opcodes, unsigned int line_number, FILE *pts)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
+		{"nop", nop},
 		{NULL, NULL}
 		};
 
