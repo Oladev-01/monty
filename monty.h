@@ -45,4 +45,5 @@ void check_digit_1(char *token, FILE *pts, unsigned int line_number);
 void chk_op(stack_t **head, char *opcodes, unsigned int line_number, FILE *pts);
 void pint(stack_t **stack, unsigned int line_number);
 void confirm_op_arg(char *token, FILE *pts, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 #endif
