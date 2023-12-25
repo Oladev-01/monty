@@ -23,3 +23,28 @@ void swap(stack_t **stack, unsigned int line_number)
 	ptr->next = hold;
 	ptr->prev = *stack;
 }
+
+/**
+ * add - this function adds the top two elements of the stack-
+ * and storing the value in the second node and deleting the top
+ * @stack: the pointer to the pointer to the head node
+ * @line_number: line number
+ * Return: void
+ */
+void add(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr = *stack, *hold;
+	int sum = 0;
+
+	if (!stack || !ptr || !ptr->next)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	hold = ptr->next;
+	sum += ptr->n;
+	sum += hold->n;
+	hold->n = sum;
+	pop(stack, line_number);
+}
+
