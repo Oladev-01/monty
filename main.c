@@ -102,7 +102,7 @@ void chk_op(stack_t **head, char *opcodes, unsigned int line_number, FILE *pts)
 		if (check == 0)
 		{
 			ptr[i].f(head, line_number);
-			return;
+			break;
 		}
 	}
 	if (check != 0)
