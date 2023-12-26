@@ -55,3 +55,25 @@ void rotl(stack_t **stack, unsigned int line_number)
 		ptr->next = NULL;
 	}
 }
+
+/**
+ * rotr - this rotates the stack to the bottom
+ * @stack: the pointer to the pointer to the head node
+ * @line_number: line number
+ * Return: void
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr = *stack, *hold = *stack, *top;
+
+	(void)line_number;
+	if (!stack || !ptr || !ptr->next)
+		return;
+	while (hold->next->next)
+		hold = hold->next;
+	top = hold->next;
+	hold->next = NULL;
+	*stack = top;
+	(*stack)->prev = NULL;
+	(*stack)->next = ptr;
+}
