@@ -29,3 +29,26 @@ void pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
+
+/**
+ * rotl - this function rotates stack
+ * @stack: the pointer to the pointer to the head node
+ * @line_number: line number
+ * Return: void
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr = *stack, *hold;
+
+	(void)line_number;
+	if (!stack || !ptr)
+		return;
+	*stack = ptr->next;
+	(*stack)->prev = NULL;
+	hold = *stack;
+	while (hold->next)
+		hold = hold->next;
+	hold->next = ptr;
+	ptr->prev = hold;
+	ptr->next = NULL;
+}
