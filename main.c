@@ -104,13 +104,14 @@ void chk_op(stack_t **head, char *opcodes, unsigned int line_number, FILE *pts)
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"queue", queue},
+		{"stack", stacks},
 		{NULL, NULL}
 		};
 
 	if (opcodes[0] == '#')
-	{
 		return;
-	}
+
 	for (i = 0; ptr[i].opcode != NULL; i++)
 	{
 		check = strcmp(ptr[i].opcode, opcodes);

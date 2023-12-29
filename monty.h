@@ -7,7 +7,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <ctype.h>
-extern int num;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -37,6 +37,30 @@ typedef struct instruction_s
 		char *opcode;
 		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+ * enum Mode - this creates a list of variables to set-
+ *  the list to either stack or queue mode
+ * @QUEUE: this is the queue mode
+ * @STACK: this is the stack mode
+*/
+typedef enum Mode
+{
+	QUEUE,
+	STACK
+} Mode;
+
+/**
+ * struct g_data - this is the global variables
+ * @num: the global data
+ * @mode: enum modes
+*/
+typedef struct g_data
+{
+	int num;
+	Mode mode;
+} g_data;
+extern g_data data;
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void free_list(stack_t **stack);
@@ -57,4 +81,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
+void stacks(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
 #endif

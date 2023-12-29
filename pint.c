@@ -1,5 +1,4 @@
 #include "monty.h"
-int num;
 /**
  * pint - this function prints the value at the top of stack
  * @stack: the pointer to the pointer to the head node
@@ -29,10 +28,11 @@ void pint(stack_t **stack, unsigned int line_number)
  */
 void confirm_op_arg(char *token, FILE *pts, unsigned int line_number)
 {
+
 	if (token)
 	{
 		check_digit_1(token, pts, line_number);
-		num = atoi(token);
+		data.num = atoi(token);
 	}
 	else
 	{
@@ -47,6 +47,7 @@ void confirm_op_arg(char *token, FILE *pts, unsigned int line_number)
  * @line_number: the line number
  * Return: void
  */
+g_data data;
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr;
