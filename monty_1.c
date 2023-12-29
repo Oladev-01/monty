@@ -19,14 +19,14 @@ void push(stack_t **stack, unsigned int line_number)
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	new_node->n = data.num;
-	if (data.mode == STACK)
+	if (data.mode == STACK || data.mode == NTN)
 	{
 		new_node->next = *stack;
 		if (*stack)
 			(*stack)->prev = new_node;
 		*stack = new_node;
 	}
-	if (data.mode == QUEUE)
+	else if (data.mode == QUEUE)
 	{
 		if (!(*stack))
 			*stack = new_node;
@@ -41,6 +41,7 @@ void push(stack_t **stack, unsigned int line_number)
 			new_node->next = NULL;
 		}
 	}
+	
 }
 
 /**

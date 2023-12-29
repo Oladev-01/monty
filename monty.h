@@ -43,11 +43,13 @@ typedef struct instruction_s
  *  the list to either stack or queue mode
  * @QUEUE: this is the queue mode
  * @STACK: this is the stack mode
+ * @NTN: no mode set
 */
 typedef enum Mode
 {
 	QUEUE,
-	STACK
+	STACK,
+	NTN
 } Mode;
 
 /**

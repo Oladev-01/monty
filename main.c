@@ -24,6 +24,7 @@ int main(int ac, char **av)
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
+	data.mode = NTN;
 	while (fgets(line, sizeof(line), pts))
 	{
 		token = strtok(line, " \n");
